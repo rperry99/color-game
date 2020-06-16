@@ -41,6 +41,35 @@ body {
   cursor: pointer;
   background: #95f2d9;
 }
+#tiles {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+.colorTile {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  border: solid 2px #41463d;
+}
+
+#game h2 {
+  background: #1cfeba;
+  margin: 0 auto;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  width: 50%;
+  text-align: center;
+}
+#game h3 {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 50%;
+  text-align: center;
+  font-size: 4rem;
+}
 
 .hide {
   display: none;
