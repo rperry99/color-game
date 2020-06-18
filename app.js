@@ -1,8 +1,18 @@
 $(document).ready(function () {
+  let winner;
+
   $("#begin").click(() => {
     newGame();
     appendTiles(3);
   });
+});
+
+$(document).on("click", ".colorTile", function (e) {
+  if ($(this).attr("data-color") === winner) {
+    console.log("Winner!");
+  } else {
+    console.log("Loser");
+  }
 });
 
 function gameOver() {
@@ -31,17 +41,18 @@ function appendTiles(numToAppend) {
   for (let i = 0; i < numToAppend; i++) {
     colorArr.push(randomRGB());
     let colorTile = $(
-      `<div class = 'colorTile' style='background: ${colorArr[i]}'</div>`
+      `<div class = 'colorTile' data-color='${colorArr[i]}' style='background: ${colorArr[i]}'</div>`
     );
     $("#tiles").append(colorTile);
   }
-  getWinningColor(colorArr);
+  winner = getWinningColor(colorArr);
+  $("#clue").text(winner);
   console.log(colorArr);
 }
 
 //TODO: Get the winning color
 function getWinningColor(arr) {
-  $("#clue").text(arr[Math.floor(Math.random() * arr.length)]);
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 //TODO: Score / Round Counter
 //TODO: Increase Difficulty

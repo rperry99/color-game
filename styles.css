@@ -54,6 +54,9 @@ body {
   border-radius: 5px;
   border: solid 2px #41463d;
 }
+.colorTile:hover {
+  cursor: pointer;
+}
 
 #game h2 {
   background: #1cfeba;
