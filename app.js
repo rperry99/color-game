@@ -1,5 +1,6 @@
 $(document).ready(function () {
   let winner;
+  let score = 0;
 
   $("#begin").click(() => {
     newGame();
@@ -10,6 +11,8 @@ $(document).ready(function () {
 $(document).on("click", ".colorTile", function (e) {
   if ($(this).attr("data-color") === winner) {
     console.log("Winner!");
+    score++;
+    updateScore(score);
   } else {
     console.log("Loser");
   }
@@ -21,6 +24,8 @@ function gameOver() {
 }
 
 function newGame() {
+  score = 0;
+  updateScore(score);
   $("#game").removeClass("hide");
   $("#start").addClass("hide");
 }
@@ -55,4 +60,9 @@ function getWinningColor(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 //TODO: Score / Round Counter
+function updateScore(currentScore) {
+  $("#score").text(currentScore);
+}
+
+//TODO: New round on successful guess.
 //TODO: Increase Difficulty
