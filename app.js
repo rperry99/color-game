@@ -1,24 +1,34 @@
 $(document).ready(function () {
   let winner;
   let score = 0;
+  let appendNum = 4; //Base number of tiles per game. Number will increase as score increases
 
   $("#begin").click(() => {
     newGame();
-    appendTiles(3);
+    newRound(appendNum);
   });
 });
 
 $(document).on("click", ".colorTile", function (e) {
   if ($(this).attr("data-color") === winner) {
-    console.log("Winner!");
     score++;
     updateScore(score);
+    if (score <= 3) {
+      appendNum = 4;
+    } else if (score > 3 && score < 6) {
+      appendNum = 8;
+    } else if (score > 12) {
+      appendNum = 12;
+    }
+    newRound(appendNum);
   } else {
-    console.log("Loser");
+    gameOver();
   }
 });
 
 function gameOver() {
+  score = 0;
+  updateScore(score);
   $("#start").removeClass("hide");
   $("#game").addClass("hide");
 }
@@ -41,7 +51,8 @@ function randomRGB() {
   return `rgb(${red},${green},${blue})`;
 }
 //TODO: Function to create color div
-function appendTiles(numToAppend) {
+function newRound(numToAppend) {
+  $("#tiles").empty();
   let colorArr = [];
   for (let i = 0; i < numToAppend; i++) {
     colorArr.push(randomRGB());
@@ -64,5 +75,4 @@ function updateScore(currentScore) {
   $("#score").text(currentScore);
 }
 
-//TODO: New round on successful guess.
 //TODO: Increase Difficulty
