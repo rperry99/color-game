@@ -28,14 +28,21 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+#start #message {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 #begin {
   height: 50px;
-  width: 150px;
+  width: max-content;
   border: none;
   outline: none;
   background: #1cfeba;
   font-size: 2rem;
   border-radius: 5px;
+  padding: 0 2rem;
 }
 #begin:hover {
   cursor: pointer;
@@ -49,10 +56,11 @@ body {
   margin-top: 5rem;
 }
 .colorTile {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   border-radius: 5px;
   border: solid 2px #41463d;
+  margin-bottom: 1rem;
 }
 .colorTile:hover {
   cursor: pointer;
@@ -69,7 +77,7 @@ body {
 #game h3 {
   margin: 0 auto;
   margin-top: 2rem;
-  width: 50%;
+  width: max-content;
   text-align: center;
   font-size: 4rem;
 }

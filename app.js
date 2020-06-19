@@ -1,3 +1,4 @@
+let highscore = 0;
 $(document).ready(function () {
   let winner;
   let score = 0;
@@ -27,10 +28,17 @@ $(document).on("click", ".colorTile", function (e) {
 });
 
 function gameOver() {
+  if (highscore < score) {
+    highscore = score;
+  }
   score = 0;
   updateScore(score);
   $("#start").removeClass("hide");
   $("#game").addClass("hide");
+  $("#begin").text("Play Again?");
+  $("#message").removeClass("hide");
+  $("#highscore").html(highscore);
+  console.log(highscore);
 }
 
 function newGame() {
@@ -48,7 +56,7 @@ function randomRGB() {
   let red = randomColor();
   let green = randomColor();
   let blue = randomColor();
-  return `rgb(${red},${green},${blue})`;
+  return `rgb(${red}, ${green}, ${blue})`;
 }
 //TODO: Function to create color div
 function newRound(numToAppend) {
@@ -74,5 +82,3 @@ function getWinningColor(arr) {
 function updateScore(currentScore) {
   $("#score").text(currentScore);
 }
-
-//TODO: Increase Difficulty
