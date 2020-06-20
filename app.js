@@ -39,6 +39,8 @@ function gameOver() {
   $("#message").removeClass("hide");
   $("#highscore").html(highscore);
   console.log(highscore);
+  $(".help").removeClass("hide");
+  $(".container h1").removeClass("hide");
 }
 
 function newGame() {
@@ -46,6 +48,8 @@ function newGame() {
   updateScore(score);
   $("#game").removeClass("hide");
   $("#start").addClass("hide");
+  $(".help").addClass("hide");
+  $(".container h1").addClass("hide");
 }
 
 //TODO: Random RGB Generator
