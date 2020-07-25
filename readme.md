@@ -8,13 +8,13 @@ You can view a playable version [here](https://rperry99.github.io/color-game/)
 
 ## Change Log
 
-# June 20th, 2020
+### June 20th, 2020
 
 ---
 
 - Upload a working, playable project
 
-# July 24th, 2020
+### July 24th, 2020
 
 ---
 
